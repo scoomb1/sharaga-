@@ -3,18 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $categories = Category::paginate(4);
-        return view('admin.categories.index', compact('categories'));
+        $tags = Tag::paginate(2);
+        return view('admin.tags.index', compact('tags'));
     }
 
     /**
@@ -22,7 +22,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-         return view('admin.categories.create');
+        //
     }
 
     /**
@@ -30,12 +30,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-         $request->validate([
-            'title' => 'required',
-        ]);
-
-        Category::create($request->all());
-        return redirect()->route('categories.index')->with('success', 'Категория добавлена');
+        //
     }
 
     /**
